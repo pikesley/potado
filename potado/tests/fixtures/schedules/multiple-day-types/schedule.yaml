@@ -1,0 +1,15 @@
+- zone: Bedroom
+  schedule:
+  - days: mon-fri
+    periods:
+    - mode: warm
+      start: '07:00'
+      end:   '09:00'
+    - mode: warm
+      start: '20:00'
+      end:   '23:00'
+  - days: saturday
+    periods:
+    - mode: warm
+      start: '09:00'
+      end:   '12:00'

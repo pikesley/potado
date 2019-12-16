@@ -1,0 +1,11 @@
+coverage
+mock
+pylama
+pylint
+pytest
+pytest-cov
+pytest-random-order
+pyyaml
+requests
+
+ipdb

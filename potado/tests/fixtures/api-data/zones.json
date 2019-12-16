@@ -1,0 +1,171 @@
+[
+    {
+        "dateCreated": "2017-01-11T13:23:25.147Z",
+        "dazzleEnabled": true,
+        "dazzleMode": {
+            "enabled": true,
+            "supported": true
+        },
+        "deviceTypes": [
+            "RU01"
+        ],
+        "devices": [
+            {
+                "batteryState": "NORMAL",
+                "characteristics": {
+                    "capabilities": [
+                        "INSIDE_TEMPERATURE_MEASUREMENT",
+                        "IDENTIFY"
+                    ]
+                },
+                "connectionState": {
+                    "timestamp": "2019-12-16T15:05:14.720Z",
+                    "value": true
+                },
+                "currentFwVersion": "54.16",
+                "deviceType": "RU01",
+                "duties": [
+                    "ZONE_UI",
+                    "CIRCUIT_DRIVER",
+                    "ZONE_LEADER"
+                ],
+                "serialNo": "ABC123",
+                "shortSerialNo": "ABC"
+            }
+        ],
+        "id": 1,
+        "name": "Heating",
+        "openWindowDetection": {
+            "enabled": false,
+            "supported": true,
+            "timeoutInSeconds": 900
+        },
+        "reportAvailable": false,
+        "supportsDazzle": true,
+        "type": "HEATING"
+    },
+    {
+        "dateCreated": "2019-11-18T11:42:30.768Z",
+        "dazzleEnabled": true,
+        "dazzleMode": {
+            "enabled": true,
+            "supported": true
+        },
+        "deviceTypes": [
+            "VA02",
+            "VA02"
+        ],
+        "devices": [
+            {
+                "batteryState": "NORMAL",
+                "characteristics": {
+                    "capabilities": [
+                        "INSIDE_TEMPERATURE_MEASUREMENT",
+                        "IDENTIFY"
+                    ]
+                },
+                "connectionState": {
+                    "timestamp": "2019-12-16T15:12:38.108Z",
+                    "value": true
+                },
+                "currentFwVersion": "62.3",
+                "deviceType": "VA02",
+                "duties": [
+                    "ZONE_UI",
+                    "ZONE_DRIVER"
+                ],
+                "mountingState": {
+                    "timestamp": "2019-11-18T12:12:58.770Z",
+                    "value": "CALIBRATED"
+                },
+                "serialNo": "DEF456",
+                "shortSerialNo": "DEF"
+            },
+            {
+                "batteryState": "NORMAL",
+                "characteristics": {
+                    "capabilities": [
+                        "INSIDE_TEMPERATURE_MEASUREMENT",
+                        "IDENTIFY"
+                    ]
+                },
+                "connectionState": {
+                    "timestamp": "2019-12-16T15:13:16.617Z",
+                    "value": true
+                },
+                "currentFwVersion": "62.3",
+                "deviceType": "VA02",
+                "duties": [
+                    "ZONE_UI",
+                    "ZONE_DRIVER",
+                    "ZONE_LEADER"
+                ],
+                "mountingState": {
+                    "timestamp": "2019-11-18T11:41:07.532Z",
+                    "value": "CALIBRATED"
+                },
+                "serialNo": "GHI789",
+                "shortSerialNo": "GHI"
+            }
+        ],
+        "id": 2,
+        "name": "Bedroom",
+        "openWindowDetection": {
+            "enabled": true,
+            "supported": true,
+            "timeoutInSeconds": 900
+        },
+        "reportAvailable": false,
+        "supportsDazzle": true,
+        "type": "HEATING"
+    },
+    {
+        "dateCreated": "2019-11-18T12:34:09.986Z",
+        "dazzleEnabled": true,
+        "dazzleMode": {
+            "enabled": true,
+            "supported": true
+        },
+        "deviceTypes": [
+            "VA02"
+        ],
+        "devices": [
+            {
+                "batteryState": "NORMAL",
+                "characteristics": {
+                    "capabilities": [
+                        "INSIDE_TEMPERATURE_MEASUREMENT",
+                        "IDENTIFY"
+                    ]
+                },
+                "connectionState": {
+                    "timestamp": "2019-12-16T15:09:30.331Z",
+                    "value": true
+                },
+                "currentFwVersion": "54.12",
+                "deviceType": "VA02",
+                "duties": [
+                    "ZONE_UI",
+                    "ZONE_DRIVER",
+                    "ZONE_LEADER"
+                ],
+                "mountingState": {
+                    "timestamp": "2019-12-16T12:40:46.117Z",
+                    "value": "CALIBRATED"
+                },
+                "serialNo": "JKL012",
+                "shortSerialNo": "JKL"
+            }
+        ],
+        "id": 3,
+        "name": "Kitchen",
+        "openWindowDetection": {
+            "enabled": false,
+            "supported": true,
+            "timeoutInSeconds": 900
+        },
+        "reportAvailable": false,
+        "supportsDazzle": true,
+        "type": "HEATING"
+    }
+]

@@ -1,0 +1,7 @@
+- zone: Bedroom
+  schedule:
+  - days: all
+    periods:
+    - mode: warm
+      start: '12:00'
+      end:   '14:30'

@@ -1,0 +1,6 @@
+- zone: Bedroom
+  schedule:
+  - days: mon-fri
+    periods:
+    - start: '07:00'
+      end:   '09:00'

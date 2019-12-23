@@ -1,2 +1,5 @@
 .coverage
 potado/conf/credentials.yaml
+potado/conf/schedule.yaml
+potado/conf/schedule-default.yaml
+potado/conf/settings.yaml

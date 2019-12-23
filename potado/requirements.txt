@@ -1,11 +1,13 @@
 coverage
+isort[requirements]
 mock
 pylama
 pylint
 pytest
 pytest-cov
 pytest-random-order
-pyyaml
 requests
+requests-mock
+ruamel.yaml
 
 ipdb

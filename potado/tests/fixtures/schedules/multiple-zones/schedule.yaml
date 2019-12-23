@@ -12,3 +12,11 @@
     - mode: warm
       start: '08:00'
       end:   '10:00'
+    - mode: warm
+      start: '16:00'
+      end:   '20:00'
+  - days: saturday
+    periods:
+    - mode: warm
+      start: '10:00'
+      end: '18:00'

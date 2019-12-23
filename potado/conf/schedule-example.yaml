@@ -1,0 +1,36 @@
+# we presume you've already set up your Zones in the Tado app
+- zone: Bedroom
+  schedule:
+
+  # potado understands
+  #   mon-fri
+  #   saturday
+  #   sunday
+  #   weekend (expands to 'saturday' and 'sunday')
+  #   all (expands to 'mon-fri', 'saturday' and 'sunday')
+  - days: mon-fri
+
+    # the times between which you want this zone heated
+    periods:
+    - mode:  warm
+      start: '07:00'
+      end:   '09:00'
+
+    # it defaults to 'warm' so the mode can be left out
+    - start: '20:00'
+      end:   '23:00'
+
+  # another 'days' type
+  - days: weekend
+    periods:
+    - mode:  warm
+      start: '09:00'
+      end:   '11:00'
+
+# etc etc
+- zone: Kitchen
+  schedule:
+  - days: all
+    periods:
+    - start: '07:00'
+      end:   '09:00'

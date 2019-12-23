@@ -1,0 +1,7 @@
+temperatures:
+
+  # you can create as many values as you want in here
+  cold: -273
+  ambient: 16
+  warm: 23
+  infernal: 3000

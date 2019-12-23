@@ -1,0 +1,7 @@
+temperatures:
+  very-cold: -273
+  cold: 0
+  ambient: 14
+  warm: 22
+  hot: 30
+  infernal: 3000

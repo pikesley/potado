@@ -15,3 +15,17 @@ run:
 		--rm \
 		${ID} \
 		bash
+
+schedule:
+	@docker run \
+		--volume $(shell pwd)/potado:/opt/potado \
+		--rm \
+		${ID} \
+		schedule
+
+init:
+	@docker run \
+		--volume $(shell pwd)/potado:/opt/potado \
+		--rm \
+		${ID} \
+		init

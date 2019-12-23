@@ -1,4 +1,4 @@
-all: style test clean
+all: fix-imports style test clean
 
 style:
 	python -m pylama
@@ -12,6 +12,9 @@ install:
 clean:
 	@find . -depth -name __pycache__ -exec rm -fr {} \;
 	@find . -depth -name .pytest_cache -exec rm -fr {} \;
+
+fix-imports:
+	isort -rc --atomic
 
 schedule:
 	@python scheduler.py

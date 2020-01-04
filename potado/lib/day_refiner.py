@@ -1,3 +1,6 @@
+from functools import singledispatchmethod
+
+
 class DayRefiner(list):
     """Consolidate raw schedule data into the correct day_types."""
 
@@ -15,10 +18,9 @@ class DayRefiner(list):
             else:
                 self.append(item)
 
+    @singledispatchmethod
     def add_group(self, days, item):
         """Add a group of days to ourself."""
-        if not isinstance(days, list):
-            days = [days]
         group = []
         for day in days:
             data = {'days': day}
@@ -27,3 +29,7 @@ class DayRefiner(list):
             group.append(data)
 
         self.extend(group)
+
+    @add_group.register(str)
+    def _(self, days, item):
+        self.add_group([days], item)

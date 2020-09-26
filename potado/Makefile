@@ -1,5 +1,6 @@
+all: format style test clean
 
-style:
+style: format
 	python -m pylama
 
 test:
@@ -11,6 +12,8 @@ install:
 clean:
 	@find . -depth -name __pycache__ -exec rm -fr {} \;
 	@find . -depth -name .pytest_cache -exec rm -fr {} \;
+
+format: isort black
 
 black:
 	python -m black .

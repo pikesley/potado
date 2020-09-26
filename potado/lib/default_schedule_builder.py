@@ -13,11 +13,11 @@ class DefaultScheduleBuilder:
     def __init__(self):
         """Construct."""
         self.client = TadoClient()
-        self.default_path = 'conf/schedule-default.yaml'
+        self.default_path = "conf/schedule-default.yaml"
 
         LOGGER.info("Creating default schedules")
         zones_data = self.client.zones()
-        self.zone_names = list(map(lambda x: x['name'], zones_data))
+        self.zone_names = list(map(lambda x: x["name"], zones_data))
 
         self.zones = []
         for zone in self.zone_names:
@@ -27,39 +27,33 @@ class DefaultScheduleBuilder:
 
     def make_defaults(self, zone):
         """Make up some default schedule data."""
-        return OrderedDict({
-            'zone': zone,
-            'schedule': [
-                {
-                    'days': 'all',
-                    'periods': [
-                        {
-                            'start': "07:00",
-                            'end': '23:00'
-                        }
-                    ]
-                }
-            ]
-        })
+        return OrderedDict(
+            {
+                "zone": zone,
+                "schedule": [
+                    {"days": "all", "periods": [{"start": "07:00", "end": "23:00"}]}
+                ],
+            }
+        )
 
     def yamlise(self, path=None):
         """Write the data out."""
         yaml = ruamel.yaml.YAML()
         yaml.preserve_quotes = True
-        with open('/tmp/schedule.yaml', 'w') as outfile:
+        with open("/tmp/schedule.yaml", "w") as outfile:
             clean_zones = list(map(dict, self.zones))
             yaml.dump(clean_zones, outfile)
 
-        content = open('/tmp/schedule.yaml').read()
+        content = open("/tmp/schedule.yaml").read()
         lines = content.split("\n")
         newlines = []
-        matcher = re.compile(r'(.*)(\d{2}:\d{2})(.*)')
+        matcher = re.compile(r"(.*)(\d{2}:\d{2})(.*)")
         for line in lines:
             newlines.append(matcher.sub(r"\1'\2'\3", line))
 
         if not path:
             path = self.default_path  # nocov
 
-        with open(path, 'w') as schedule:
+        with open(path, "w") as schedule:
             for line in newlines:
                 schedule.write(f"{line}\n")

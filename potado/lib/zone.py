@@ -11,21 +11,21 @@ class Zone:
         """Construct."""
         self.settings = config.settings()
         self.identifier = identifier
-        self.name = data['zone']
-        self.data = DayRefiner(data['schedule'])
+        self.name = data["zone"]
+        self.data = DayRefiner(data["schedule"])
 
         self.periods = {}
 
         # a section is one of 'mon-fri', 'saturday' or 'sunday'
         for section in self.data:
-            day_type = section['days']
+            day_type = section["days"]
 
             # this list holds the 'active' periods (when we want heat)
             intermediate = []
 
             # populate it with the active periods
-            if 'periods' in section:
-                for period in section['periods']:
+            if "periods" in section:
+                for period in section["periods"]:
                     intermediate.append(Period(period, day_type))
 
             # then pad it with 'ambient' periods

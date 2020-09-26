@@ -14,7 +14,7 @@ class Home(dict):
         schedule = config.schedule()
 
         for section in schedule:
-            zone = Zone(section, mapper[section['zone']])
+            zone = Zone(section, mapper[section["zone"]])
             self[zone.name] = zone
 
     def apply(self):

@@ -10,14 +10,14 @@ def config(path):
 
 def settings():
     """Get the settings data."""
-    return config('conf/settings.yaml')
+    return config("conf/settings.yaml")
 
 
 def credentials():
     """Get the credentials data."""
-    return config('conf/credentials.yaml')
+    return config("conf/credentials.yaml")
 
 
 def schedule():
     """Get the schedule data."""
-    return config('conf/schedule.yaml')
+    return config("conf/schedule.yaml")

@@ -9,11 +9,11 @@ class DayRefiner(list):
         self.raw_data = raw_data
 
         for item in self.raw_data:
-            if item['days'] == 'all':
-                self.add_group('mon-fri', item)
+            if item["days"] == "all":
+                self.add_group("mon-fri", item)
 
-            if item['days'] in ['all', 'weekend']:
-                self.add_group(['saturday', 'sunday'], item)
+            if item["days"] in ["all", "weekend"]:
+                self.add_group(["saturday", "sunday"], item)
 
             else:
                 self.append(item)
@@ -23,9 +23,9 @@ class DayRefiner(list):
         """Add a group of days to ourself."""
         group = []
         for day in days:
-            data = {'days': day}
-            if 'periods' in item:
-                data['periods'] = item['periods']
+            data = {"days": day}
+            if "periods" in item:
+                data["periods"] = item["periods"]
             group.append(data)
 
         self.extend(group)

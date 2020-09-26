@@ -16,27 +16,23 @@ class GapFiller(list):
         """Plug the gaps."""
         reduced_periods = list(map(GapFiller.reduce, self.periods))
         for filler in GapFiller.fill_around(reduced_periods):
-            data = {
-                'start': filler[0],
-                'end': filler[1],
-                'mode': 'ambient'
-            }
+            data = {"start": filler[0], "end": filler[1], "mode": "ambient"}
             self.append(Period(data, self.day_type))
 
         self.extend(self.periods)
 
-        self.sort(key=lambda period: period['start'])
+        self.sort(key=lambda period: period["start"])
 
     @staticmethod
     def fill_around(periods):
         """Plug the gaps."""
         if not periods:
-            return [('00:00', '00:00')]
+            return [("00:00", "00:00")]
 
         filler = []
 
-        if not periods[0][0] == '00:00':
-            filler.append(('00:00', periods[0][0]))
+        if not periods[0][0] == "00:00":
+            filler.append(("00:00", periods[0][0]))
 
         for index, _ in enumerate(periods):
             try:
@@ -49,12 +45,12 @@ class GapFiller(list):
             except IndexError:
                 pass
 
-        if not periods[-1][1] == '00:00':
-            filler.append((periods[-1][1], '00:00'))
+        if not periods[-1][1] == "00:00":
+            filler.append((periods[-1][1], "00:00"))
 
         return filler
 
     @staticmethod
     def reduce(period):
         """Reduce a period to two timestamps."""
-        return (period['start'], period['end'])
+        return (period["start"], period["end"])

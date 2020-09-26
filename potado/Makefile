@@ -1,6 +1,6 @@
-all: fix-imports style test clean
+all: format style test clean
 
-style:
+style: format
 	python -m pylama
 
 test:
@@ -13,8 +13,13 @@ clean:
 	@find . -depth -name __pycache__ -exec rm -fr {} \;
 	@find . -depth -name .pytest_cache -exec rm -fr {} \;
 
-fix-imports:
-	isort -rc --atomic
+format: isort black
+
+black:
+	python -m black .
+
+isort:
+	python -m isort .
 
 schedule:
 	@python scheduler.py

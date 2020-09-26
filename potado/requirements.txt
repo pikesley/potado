@@ -1,5 +1,5 @@
 coverage
-isort[requirements]
+isort
 mock
 pylama
 pylint

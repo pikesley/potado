@@ -1,5 +1,6 @@
+from unittest.mock import patch
+
 import ruamel.yaml
-from mock import patch
 from test_helpers import mock_out_client, schedule_fixture
 
 from lib.home import Home
@@ -14,8 +15,8 @@ class TestHome:
     def setup_method(self):
         """Do some initialisation."""
         yaml = ruamel.yaml.YAML()
-        self.settings_fixture = yaml.load(open("tests/fixtures/conf/settings.yaml"))
-        self.creds_fixture = yaml.load(open("tests/fixtures/conf/credentials.yaml"))
+        self.settings_fixture = yaml.load(open("tests/fixtures/conf/settings.yaml"))  # noqa: SIM115, PTH123
+        self.creds_fixture = yaml.load(open("tests/fixtures/conf/credentials.yaml"))  # noqa: SIM115, PTH123
         mock_out_client()
 
     def test_simple_generation(self, mock_schedule, mock_settings, mock_credentials):
@@ -64,7 +65,7 @@ class TestHome:
             ]
         }
 
-        assert home["Bedroom"].identifier == 2
+        assert home["Bedroom"].identifier == 2  # noqa: PLR2004
 
     def test_multiple_periods(self, mock_schedule, mock_settings, mock_credentials):
         """Test it generates for multiple periods."""

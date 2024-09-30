@@ -31,7 +31,7 @@ class GapFiller(list):
 
         filler = []
 
-        if not periods[0][0] == "00:00":
+        if periods[0][0] != "00:00":
             filler.append(("00:00", periods[0][0]))
 
         for index, _ in enumerate(periods):
@@ -40,12 +40,12 @@ class GapFiller(list):
                 next_start = periods[index + 1][0]
 
                 # otherwise we'll create a zero-length ambient period
-                if not now_end == next_start:
+                if now_end != next_start:
                     filler.append((now_end, next_start))
             except IndexError:
                 pass
 
-        if not periods[-1][1] == "00:00":
+        if periods[-1][1] != "00:00":
             filler.append((periods[-1][1], "00:00"))
 
         return filler

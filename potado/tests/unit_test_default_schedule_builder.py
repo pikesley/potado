@@ -1,7 +1,6 @@
 import json
 import logging
-
-from mock import MagicMock, mock_open, patch
+from unittest.mock import MagicMock, mock_open, patch
 
 from lib.client import TadoClient
 from lib.default_schedule_builder import DefaultScheduleBuilder
@@ -12,13 +11,13 @@ class TestDefaultScheduleBuilder:
 
     def setup_method(self):
         """Do some initialisation."""
-        fixture = json.loads(open("tests/fixtures/api-data/zones.json").read())
+        fixture = json.loads(open("tests/fixtures/api-data/zones.json").read())  # noqa: SIM115, PTH123
         TadoClient.zones = MagicMock(return_value=fixture)
 
     def test_data(self):
         """Test it has the right data."""
         logging.Logger.info = MagicMock()
-        fixture_data = open("tests/fixtures/conf/credentials.yaml").read()
+        fixture_data = open("tests/fixtures/conf/credentials.yaml").read()  # noqa: SIM115, PTH123
         with patch("builtins.open", mock_open(read_data=fixture_data)):
             builder = DefaultScheduleBuilder()
 
@@ -33,12 +32,12 @@ class TestDefaultScheduleBuilder:
     def test_writing(self):
         """Test it writes good yaml."""
         logging.Logger.info = MagicMock()
-        fixture_data = open("tests/fixtures/conf/credentials.yaml").read()
+        fixture_data = open("tests/fixtures/conf/credentials.yaml").read()  # noqa: SIM115, PTH123
         with patch("builtins.open", mock_open(read_data=fixture_data)):
             builder = DefaultScheduleBuilder()
 
-        builder.yamlise("/tmp/schedule.yaml")
-        output = open("/tmp/schedule.yaml").read()
+        builder.yamlise("/tmp/schedule.yaml")  # noqa: S108
+        output = open("/tmp/schedule.yaml").read()  # noqa: S108, SIM115, PTH123
         assert output.split("\n") == [
             "- zone: Heating",
             "  schedule:",

@@ -1,5 +1,6 @@
+from unittest.mock import patch
+
 import ruamel.yaml
-from mock import patch
 
 from lib.gap_filler import GapFiller
 
@@ -11,7 +12,7 @@ class TestGapFiller:
     def setup_method(self):
         """Do some initialisation."""
         yaml = ruamel.yaml.YAML()
-        self.fixture = yaml.load(open("tests/fixtures/conf/settings.yaml"))
+        self.fixture = yaml.load(open("tests/fixtures/conf/settings.yaml"))  # noqa: SIM115, PTH123
 
     def test_simplest(self, mock_settings):
         """Test the Zero case."""

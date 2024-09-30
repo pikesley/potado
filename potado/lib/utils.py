@@ -4,3 +4,4 @@ def day_type_for(key):
         return "MONDAY_TO_FRIDAY"
     if key in ["saturday", "sunday"]:
         return key.upper()
+    return None  # nocov

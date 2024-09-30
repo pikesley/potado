@@ -1,14 +1,11 @@
-black
 coverage
-isort
 mock
-pylama
-pylint
 pytest
 pytest-cov
 pytest-random-order
 requests
 requests-mock
 ruamel.yaml
+ruff
 
 ipdb

@@ -4,7 +4,7 @@ import ruamel.yaml
 def config(path):
     """Load generic YAML loader."""
     yaml = ruamel.yaml.YAML()
-    data = open(path).read()
+    data = open(path).read()  # noqa: SIM115, PTH123
     return yaml.load(data)
 
 

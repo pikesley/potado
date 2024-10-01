@@ -1,4 +1,5 @@
-from mock import patch
+from unittest.mock import patch
+
 from ruamel.yaml import YAML
 from test_helpers import dummy_settings
 
@@ -91,7 +92,7 @@ class TestZone:
             },
         ]
 
-        assert zone.identifier == 4
+        assert zone.identifier == 4  # noqa: PLR2004
         assert zone.url_fragment == "zones/4/schedule/timetables/1/blocks"
 
     def test_with_no_periods(self, mock_settings):
@@ -119,7 +120,7 @@ class TestZone:
     def test_more_temperatures(self, mock_settings):
         """Test it support a variety of temperatures."""
         yaml = YAML()
-        fixture = yaml.load(open("tests/fixtures/conf/richer-settings.yaml"))
+        fixture = yaml.load(open("tests/fixtures/conf/richer-settings.yaml"))  # noqa: SIM115, PTH123
         mock_settings.return_value = fixture
         data = {
             "zone": "Kitchen",

@@ -1,8 +1,8 @@
 import logging
+from unittest.mock import MagicMock, call, mock_open, patch
 
 import requests_mock
 import ruamel.yaml
-from mock import MagicMock, call, mock_open, patch
 from test_helpers import mock_out_client, schedule_fixture
 
 from lib.home import Home
@@ -19,16 +19,15 @@ class TestPUTtingSchedule:
 
         mock_schedule.return_value = schedule_fixture("multiple-zones")
 
-        settings_fixture = yaml.load(open("tests/fixtures/conf/settings.yaml"))
+        settings_fixture = yaml.load(open("tests/fixtures/conf/settings.yaml"))  # noqa: SIM115, PTH123
         mock_settings.return_value = settings_fixture
 
         mock_out_client()
 
         logging.Logger.info = MagicMock()
 
-        fixture_data = open("tests/fixtures/conf/credentials.yaml").read()
+        fixture_data = open("tests/fixtures/conf/credentials.yaml").read()  # noqa: SIM115, PTH123
         with patch("builtins.open", mock_open(read_data=fixture_data)):
-
             home = Home()
 
             urls = [
@@ -64,7 +63,7 @@ class TestPUTtingSchedule:
 
                 home.apply()
 
-                assert mocked.call_count == 5
+                assert mocked.call_count == 5  # noqa: PLR2004
                 assert mocked.last_request.json() == [
                     {
                         "dayType": "SATURDAY",

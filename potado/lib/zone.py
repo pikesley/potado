@@ -26,7 +26,7 @@ class Zone:
             # populate it with the active periods
             if "periods" in section:
                 for period in section["periods"]:
-                    intermediate.append(Period(period, day_type))
+                    intermediate.append(Period(period, day_type))  # noqa: PERF401
 
             # then pad it with 'ambient' periods
             self.periods[day_type] = GapFiller(intermediate, day_type)

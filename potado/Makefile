@@ -1,7 +1,7 @@
 all: format style test clean
 
 style: format
-	python -m pylama
+	ruff check
 
 test:
 	python -m pytest --random-order --cov -vv -s --exitfirst
@@ -13,13 +13,9 @@ clean:
 	@find . -depth -name __pycache__ -exec rm -fr {} \;
 	@find . -depth -name .pytest_cache -exec rm -fr {} \;
 
-format: isort black
-
-black:
-	python -m black .
-
-isort:
-	python -m isort .
+format:
+	ruff check --fix
+	ruff format
 
 schedule:
 	@python scheduler.py

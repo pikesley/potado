@@ -1,5 +1,4 @@
-import lib.utils as utils
-from lib import config
+from lib import config, utils
 
 
 class Period(dict):

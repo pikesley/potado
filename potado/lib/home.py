@@ -25,13 +25,13 @@ class Home(dict):
 
             # set to THREE_DAYS
             result = client.put_three_days(zone.identifier)
-            if not result.status_code == 200:  # nocov
+            if result.status_code != 200:  # nocov  # noqa: PLR2004
                 LOGGER.info("%s: %s", result.status_code, result.text)
 
             # actually set the schedules
             for days, data in zone.periods.items():
                 result = client.put_schedule(zone.url_fragment, days, data)
-                if not result.status_code == 200:  # nocov
+                if result.status_code != 200:  # nocov  # noqa: PLR2004
                     LOGGER.info("%s: %s", result.status_code, result.text)
 
         LOGGER.info("Done")

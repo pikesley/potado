@@ -1,8 +1,8 @@
 import json
+from unittest.mock import patch
 
 import requests_mock
 import ruamel.yaml
-from mock import patch
 
 from lib.client import TadoClient
 
@@ -15,7 +15,7 @@ class TestTadoClient:
         """Do some initialisation."""
         # self.credentials = mock_objects.mock_credentials()
         yaml = ruamel.yaml.YAML()
-        self.fixture = yaml.load(open("tests/fixtures/conf/credentials.yaml"))
+        self.fixture = yaml.load(open("tests/fixtures/conf/credentials.yaml"))  # noqa: SIM115, PTH123
 
     def test_constructor(self, mock_credentials):
         """Test the constructor."""
